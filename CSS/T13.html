@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehtävä 13</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: #2980b9;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: auto;
+  }
+
+  .label {
+    color: #fff;
+    margin-right: 10px;
+  }
+
+  .name-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 300px; /* Lisätty margin-right: 400px */
+  }
+
+  .submit-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: auto; /* Lisätty margin-right: auto */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <label class="label" for="name">Nimi:</label>
+    <input type="text" class="name-input" id="name" placeholder="Nimi">
+    <button class="submit-button">Submit</button>
+  </div>
+</body>
+</html>

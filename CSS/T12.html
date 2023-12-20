@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehtävä 12</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .box {
+    background-color: #2980b9; 
+    padding: 20px;
+    font-size: 1.5em;
+    border-radius: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .welcome, .section1, .section2, .section3, .website {
+    width: 100%;
+  }
+
+  .welcome {
+    background-color: #048bfa; 
+    max-height: 75px;
+    max-width: 570px; 
+    margin: 20px;
+    display: grid;
+    place-content: center;
+  }
+
+  .sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .section1, .section2, .section3 {
+    background-color: #d5dbdb; 
+    display: grid;
+    place-content: start start;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+  }
+
+  .website {
+    background-color: #048bfa; 
+    max-height: 25px;
+    max-width: 570px; 
+    display: grid;
+    place-content: center;
+  }
+
+  .section-box {
+    width: 150px;
+  }
+
+  .section1, .section2, .section3 {
+    color: #000; 
+  }
+</style>
+</head>
+<body>
+  <div class="box welcome">
+    <h1>Tervetuloa</h1>
+  </div>
+
+  <div class="sections">
+    <div class="box section-box section1">
+      <h2>Osio 1</h2>
+      <p>Tekstiä 1</p>
+    </div>
+
+    <div class="box section-box section2">
+      <h2>Osio 2</h2>
+      <p>Tekstiä 2</p>
+    </div>
+
+    <div class="box section-box section3">
+      <h2>Osio 3</h2>
+      <p>Tekstiä 3</p>
+    </div>
+  </div>
+
+  <div class="box website">
+    <p>Verkkosivu</p>
+  </div>
+</body>
+</html>

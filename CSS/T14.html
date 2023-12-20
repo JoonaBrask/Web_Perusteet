@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehtävä 14</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .box {
+    background-color: #2980b9; 
+    padding: 20px;
+    font-size: 1.5em;
+    border-radius: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .welcome {
+    width: 100%;
+  }
+
+  .welcome {
+    background-color: #048bfa; 
+    max-height: 75px;
+    max-width: 570px; 
+    margin: 10px;
+    display: grid;
+    place-content: center;
+  }
+
+  .section {
+    display: flex;
+    gap: 1px;
+  }
+
+  .animals, .flowers {
+    background-color: #f4d542;
+    padding: 20px;
+    width: 250px;
+  }
+
+  .flowers {
+    background-color: #ff6f61;
+    width: 250px;
+  }
+
+  p, h2 {
+    color: #000;
+  }
+</style>
+</head>
+<body>
+  <div class="box welcome">
+    <h1>Tervetuloa</h1>
+  </div>
+
+  <div class="section">
+    <div class="animals">
+      <h2>Eläimet</h2>
+      <p>Tässä tekstiä</p>
+    </div>
+    <div class="flowers">
+      <h2>Kukat</h2>
+      <p>Tässä myös tekstiä</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävä 15</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: grid;
+            place-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            padding: 20px;
+            font-size: 1.5em;
+            border-radius: 0;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .welcome {
+            max-width: 800px;
+            width: 50%;
+            background-color: #048bfa;
+            max-height: 150px;
+            display: grid;
+            place-content: center;
+            grid-column: span 2;
+            align-self: start;
+            justify-content: center;
+            margin-bottom: 15px;
+            /* Lisätään 5px väli alapuolelle */
+        }
+
+        .section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .animals,
+        .flowers {
+            background-color: #f4d542;
+            padding: 20px;
+            width: 250px;
+            display: grid;
+            text-align: left;
+        }
+
+        .flowers {
+            background-color: #ff6f61;
+            width: 250px;
+        }
+
+        p,
+        h2 {
+            color: #000;
+        }
+
+        .flowers p {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+        }
+
+        .custom-box {
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        .animals p {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                grid-template-columns: 1fr;
+            }
+
+            .flowers {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="welcome">
+            <h1>Tervetuloa</h1>
+        </div>
+        <div class="section">
+            <div class="animals">
+                <h2>Eläimet</h2>
+                <div class="custom-box">
+                    <p>Koira</p>
+                    <p>Kissa</p>
+                    <p>Hevonen</p>
+                </div>
+            </div>
+            <div class="flowers">
+                <h2>Kukat</h2>
+                <div class="custom-box">
+                    <p>Ruusu</p>
+                    <p>Lilja</p>
+                    <p>Tulppaani</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

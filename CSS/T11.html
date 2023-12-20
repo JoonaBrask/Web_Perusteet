@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehtävä 11</title>
+<style>
+  body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #fff; /* Taustaväri */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .box {
+    background-color: #f99f03;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .row {
+    display: flex;
+    width: 106.5%;
+  }
+
+  .box.half-width.meista {
+    width: 70%; /* Aseta Meistä-osion leveys */
+  }
+
+  .box.half-width.mainos {
+    width: 30%; /* Aseta Mainos-osion leveys */
+  }
+
+  .left-align {
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h2>Tervetuloa sivulle</h2>
+    </div>
+
+    <div class="box left-align"> <!-- Lisätty luokka 'left-align' -->
+      <h2>Valinnainen osio</h2>
+      <p>Tämä on yksi osio</p>
+    </div>
+
+    <div class="row">
+      <div class="box half-width meista left-align"> <!-- Lisätty luokka 'left-align' -->
+        <h2>Meistä</h2>
+        <p>Lisätietoa</p>
+      </div>
+
+      <div class="box half-width mainos left-align"> <!-- Lisätty luokka 'left-align' -->
+        <h2>Mainos</h2>
+        <p>Katoppa nämä!</p>
+      </div>
+    </div>
+
+    <div class="box left-align"> <!-- Lisätty luokka 'left-align' -->
+      <p>Kaikki oikeudet pidätetään</p>
+    </div>
+  </div>
+</body>
+</html>
