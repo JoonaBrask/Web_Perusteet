@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekisteröidy</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      // Alusta dialogi piilotetuksi
+      $("#registrationDialog").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+          "Save": function() {
+            // Tarkista syötteet
+            var name = $("#name").val();
+            var username = $("#username").val();
+            var additionalInfoEnabled = $("#additionalInfo").prop("checked");
+            var school = additionalInfoEnabled ? $("#school").val() : "";
+            var age = additionalInfoEnabled ? $("#age").val() : "";
+
+            if (name.length >= 5 && username.length >= 5) {
+              // Rekisteröinti onnistui
+              $("#registeredUser").text("Rekisteröitynyt käyttäjä: " + name);
+
+              // Näytä lisätiedot
+              var additionalInfoText = "Lisätiedot: ";
+              additionalInfoText += "Oppilaitos: " + school + ", Ikä: " + age;
+              $("#additionalInfoText").text(additionalInfoText);
+
+              // Tyhjennä kentät ja virheviesti
+              $("#name, #username, #school, #age").val("");
+              $("#error").text("");
+
+              $(this).dialog("close");
+            } else {
+              // Näytä virheviesti
+              $("#error").text("Virhe: Nimi ja käyttäjätunnus tulee olla vähintään 5 merkkiä pitkiä.");
+            }
+          },
+          "Peruuta": function() {
+            // Sulje dialogi
+            $(this).dialog("close");
+          }
+        },
+        close: function() {
+          // Tyhjennä kentät ja virheviesti
+          $("#name, #username, #school, #age").val("");
+          $("#error").text("");
+          // Poista lisätietojen näyttö ja disabloi kentät
+          $("#additionalInfoText").text("");
+          $("#school, #age").prop("disabled", true);
+          // Resetoi Lisätietoja-checkbox
+          $("#additionalInfo").prop("checked", false);
+        }
+      });
+
+      // Näytä dialogi nappia painettaessa
+      $("#registerButton").on("click", function() {
+        $("#registrationDialog").dialog("open");
+      });
+
+      // Käsittele Lisätietoja-checkboxin tila
+      $("#additionalInfo").on("change", function() {
+        var isChecked = $(this).prop("checked");
+        $("#school, #age").prop("disabled", !isChecked);
+      });
+    });
+  </script>
+</head>
+<body>
+
+<h2>Rekisteröidy</h2>
+
+<button id="registerButton">Rekisteröidy</button>
+
+<div id="registrationDialog" title="Rekisteröityminen">
+  <p>Syötä nimesi ja käyttäjätunnuksesi:</p>
+  <form>
+    <label for="name">Nimi:</label>
+    <input type="text" id="name">
+
+    <label for="username">Käyttäjätunnus:</label>
+    <input type="text" id="username">
+
+    <label for="additionalInfo">Lisätietoja:</label>
+    <input type="checkbox" id="additionalInfo">
+
+    <label for="school">Oppilaitos:</label>
+    <input type="text" id="school" disabled>
+
+    <label for="age">Ikä:</label>
+    <input type="text" id="age" disabled>
+
+    <p id="error" style="color: red;"></p>
+  </form>
+</div>
+
+<!-- Rekisteröityneen käyttäjän tiedot -->
+<p id="registeredUser"></p>
+
+<!-- Lisätiedot -->
+<p id="additionalInfoText"></p>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Syntymäpäivävalitsin</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    /* Lisää tarvittavat tyylit */
+    #selectedDate {
+      color: red;
+    }
+  </style>
+  <script>
+    $(function() {
+      // Aseta datepicker ja rajoita sallittu päivämääräalue
+      $("#datepicker").datepicker({
+        dateFormat: 'dd.mm.yy', // Päivämäärän formaatti suomeksi
+        minDate: new Date(1996, 0, 1), // 1.1.1996
+        maxDate: new Date(2015, 11, 31), // 31.12.2015
+        onSelect: function(dateText) {
+          // Päivämäärä valittu, päivitä <p>-elementti
+          $("#selectedDate").text("Valittu Pvm: " + dateText);
+        }
+      });
+
+      // Autocomplete syntymäpaikan kentälle
+      var kunnat = ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti", "Kuopio", "Kouvola"];
+      $("#syntymapaikka").autocomplete({
+        source: kunnat
+      });
+    });
+  </script>
+</head>
+<body>
+
+<h2>Syntymäpäivävalitsin</h2>
+
+<p id="selectedDate">Pvm:ää ei ole valittu</p>
+
+<label for="datepicker">Valitse syntymäpäivä:</label>
+<input type="text" id="datepicker">
+
+<label for="syntymapaikka">Syntymäpaikka:</label>
+<input type="text" id="syntymapaikka">
+
+</body>
+</html>
