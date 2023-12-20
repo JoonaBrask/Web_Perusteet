@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkit ja Artikkelit</title>
+    <style>
+        article {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var articles = document.querySelectorAll("article");
+            var links = document.querySelectorAll("a");
+
+            links.forEach(function(link) {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    var target = document.querySelector(this.getAttribute("href"));
+                    
+                    setTimeout(function() {
+                        articles.forEach(function(article) {
+                            article.style.display = "none";
+                        });
+
+                        target.style.display = "block";
+
+                        setTimeout(function() {
+                            target.style.display = "none";
+                        }, 3000);
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="#article1">Linkki 1</a>
+    <a href="#article2">Linkki 2</a>
+    <a href="#article3">Linkki 3</a>
+
+    <article id="article1">
+        <p>Teksti artikkeli 1:ssä.</p>
+    </article>
+    <article id="article2">
+        <p>Teksti artikkeli 2:ssa.</p>
+    </article>
+    <article id="article3">
+        <p>Teksti artikkeli 3:ssa.</p>
+    </article>
+</body>
+</html>

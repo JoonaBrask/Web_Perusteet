@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppilas 30</title>
+</head>
+
+<body>
+    <h2>
+        Javascript 3 Tehtävä T30
+    </h2>
+    <script>
+        function createOppilas(nimi, syntymavuosi, osoite, puhelinnumero) {
+    const oppilas = {};
+
+    oppilas.nimi = nimi;
+    oppilas.syntymavuosi = new Date(syntymavuosi);
+    oppilas.osoite = osoite;
+    oppilas.puhelinnumero = puhelinnumero;
+
+    oppilas.tulosta = function() {
+        console.log(`Nimi: ${this.nimi}, Syntymävuosi: ${this.syntymavuosi}, Osoite: ${this.osoite}, Puhelinnumero: ${this.puhelinnumero}`);
+    }
+
+    oppilas.laskeIka = function() {
+        const nykyinenVuosi = new Date().getFullYear();
+        const syntymavuosi = this.syntymavuosi.getFullYear();
+        return nykyinenVuosi - syntymavuosi;
+    }
+
+    return oppilas;
+}
+
+const oppilas = createOppilas("Matti Meikäläinen", "2005-09-15", "Esimerkkikatu 123", "0123456789");
+
+oppilas.tulosta();
+const ika = oppilas.laskeIka();
+console.log(`Ikä: ${ika}`);
+
+    </script>
+</body>
+</html>

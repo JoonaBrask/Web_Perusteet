@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävä 22</title>
+</head>
+<body>
+    <h1>Taulukon Tiedot Laskuri</h1>
+
+    <label for="taulukko">Syötä kokonaislukuja (pilkulla erotettuna):</label>
+    <input type="text" id="taulukko">
+    <button onclick="laskeTaulukonTiedot()">Laske tiedot</button>
+
+    <div id="tulos"></div>
+
+    <script>
+        function laskeTaulukonTiedot() {
+            var syote = document.getElementById("taulukko").value;
+            var taulukko = syote.split(",").map(function(item) {
+                return parseInt(item.trim(), 10);
+            });
+
+            if (isNaN(taulukko[0])) {
+                document.getElementById("tulos").textContent = "Syötä validi taulukko.";
+                return;
+            }
+
+            var pienin = taulukko[0];
+            var suurin = taulukko[0];
+            var summa = 0;
+
+            for (var i = 0; i < taulukko.length; i++) {
+                if (taulukko[i] < pienin) {
+                    pienin = taulukko[i];
+                }
+                if (taulukko[i] > suurin) {
+                    suurin = taulukko[i];
+                }
+                summa += taulukko[i];
+            }
+
+            var keskiarvo = summa / taulukko.length;
+
+            var tuloste = "Pienin arvo: " + pienin + "<br>" +
+                          "Suurin arvo: " + suurin + "<br>" +
+                          "Keskiarvo: " + keskiarvo + "<br>" +
+                          "Summa: " + summa;
+
+            document.getElementById("tulos").innerHTML = tuloste;
+        }
+    </script>
+</body>
+</html>

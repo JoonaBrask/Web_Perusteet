@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+form label,
+form input {
+    display: block;
+    margin-bottom: 5px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#instructions {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävä 21</title>
+</head>
+<body>
+    <h1>Ympyrän Pinta-ala Laskuri</h1>
+
+    <label for="sade">Syötä ympyrän säde:</label>
+    <input type="number" id="sade"> 
+    <button onclick="laskePintaAla()">Laske pinta-ala</button>
+
+    <p id="tulos"></p>
+
+    <script>
+        function laskePintaAla() {
+            var sade = document.getElementById("sade").value;
+            var pintaAla = Math.PI * Math.pow(sade, 2);
+            document.getElementById("tulos").textContent = "Ympyrän pinta-ala: " + pintaAla;
+        }
+    </script>
+</body>
+</html>

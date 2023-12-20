@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppilas 33</title>
+</head>
+<body>
+    <script>
+        class Arvosana {
+    constructor(oppiaine, arvosana, suorituspvm) {
+        this.oppiaine = oppiaine;
+        this.arvosana = arvosana;
+        this.suorituspvm = suorituspvm;
+    }
+}
+
+class Oppilas {
+    constructor(nimi, syntymavuosi, osoite, puhelinnumero) {
+        this._nimi = nimi;
+        this._syntymavuosi = new Date(syntymavuosi);
+        this._osoite = osoite;
+        this._puhelinnumero = puhelinnumero;
+        this._arvosanat = [];
+    }
+
+    LisaaArvosana(oppiaine, arvosana, suorituspvm) {
+        if (arvosana >= 0 && arvosana <= 10) {
+            const uusiArvosana = new Arvosana(oppiaine, arvosana, new Date(suorituspvm));
+            this._arvosanat.push(uusiArvosana);
+        } else {
+            console.log("Arvosana tulee olla välillä 0-10");
+        }
+    }
+
+    printArvosanat() {
+        this._arvosanat.forEach(arvosana => {
+            console.log(`Oppiaine: ${arvosana.oppiaine}, Arvosana: ${arvosana.arvosana}, Suorituspvm: ${arvosana.suorituspvm}`);
+        });
+    }
+
+    get HyvaOppilas() {
+        return this._arvosanat.some(arvosana => arvosana.arvosana === 5);
+    }
+
+    get KurssitLapi() {
+        return this._arvosanat.every(arvosana => arvosana.arvosana >= 1);
+    }
+
+    tulosta() {
+        console.log(`Nimi: ${this._nimi}, Syntymävuosi: ${this._syntymavuosi}, Osoite: ${this._osoite}, Puhelinnumero: ${this._puhelinnumero}`);
+    }
+
+    laskeIka() {
+        const nykyinenVuosi = new Date().getFullYear();
+        const syntymavuosi = this._syntymavuosi.getFullYear();
+        return nykyinenVuosi - syntymavuosi;
+    }
+
+    tulostaArvosanatMuutetullaAsteikolla() {
+        const muunnettuArvosana = arvosana => {
+            if (arvosana >= 1 && arvosana <= 2) {
+                return 1;
+            } else if (arvosana >= 3 && arvosana <= 4) {
+                return 2;
+            } else if (arvosana >= 5 && arvosana <= 6) {
+                return 3;
+            } else if (arvosana >= 7 && arvosana <= 8) {
+                return 4;
+            } else if (arvosana >= 9 && arvosana <= 10) {
+                return 5;
+            } else {
+                return arvosana;
+            }
+        };
+
+        const muunnetutArvosanat = this._arvosanat.map(arvosana => {
+            return {
+                oppiaine: arvosana.oppiaine,
+                arvosana: muunnettuArvosana(arvosana.arvosana),
+                suorituspvm: arvosana.suorituspvm
+            };
+        });
+
+        muunnetutArvosanat.forEach(arvosana => {
+            console.log(`Oppiaine: ${arvosana.oppiaine}, Arvosana (muutettu): ${arvosana.arvosana}, Suorituspvm: ${arvosana.suorituspvm}`);
+        });
+    }
+}
+
+const oppilas = new Oppilas("Matti Meikäläinen", "2005-09-15", "Esimerkkikatu 123", "0123456789");
+oppilas.LisaaArvosana("Matematiikka", 9, "2023-10-25");
+oppilas.LisaaArvosana("Fysiikka", 8, "2023-10-30");
+
+console.log("Hyvä oppilas:", oppilas.HyvaOppilas);
+console.log("Kurssit läpi:", oppilas.KurssitLapi);
+
+oppilas.tulostaArvosanatMuutetullaAsteikolla();
+
+    </script>
+</body>
+</html>

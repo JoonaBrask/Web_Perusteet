@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävä 23</title>
+</head>
+<body>
+    <h1>Potenssit</h1>
+
+    <label for="rivit">Montako riviä tulostetaan:</label>
+    <input type="number" id="rivit">
+    <button onclick="laskePotenssit()">Laske</button>
+
+    <div id="tulos"></div>
+
+    <script>
+        function laskePotenssit() {
+            var rivit = parseInt(document.getElementById("rivit").value, 10);
+            var tulosElementti = document.getElementById("tulos");
+            tulosElementti.innerHTML = "";
+
+            for (var i = 1; i <= rivit; i++) {
+                var tulos = Math.pow(i, i-1);
+                var teksti = i + " potenssiin " + (i-1) + " = " + tulos;
+                var pElementti = document.createElement("p");
+                pElementti.textContent = teksti;
+                tulosElementti.appendChild(pElementti);
+            }
+        }
+    </script>
+</body>
+</html>

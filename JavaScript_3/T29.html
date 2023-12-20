@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppilas 29</title>
+</head>
+
+<body>
+    <h1>Javascript 3 Tehtävä 29</h1>
+    <script>
+        class Oppilas {
+            constructor(nimi, syntymavuosi, osoite, puhelinnumero) {
+                this._nimi = nimi;
+                this._syntymavuosi = new Date(syntymavuosi);
+                this._osoite = osoite;
+                this._puhelinnumero = puhelinnumero;
+            }  
+  
+            get nimi() {
+                return this._nimi;
+            }
+
+            set nimi(uusiNimi) {
+                this._nimi = uusiNimi;
+            }
+
+            get syntymavuosi() {
+                return this._syntymavuosi;
+            }
+
+            set syntymavuosi(uusiSyntymavuosi) {
+                this._syntymavuosi = new Date(uusiSyntymavuosi);
+            }
+
+            get osoite() {
+                return this._osoite;
+            }
+
+            set osoite(uusiOsoite) {
+                this._osoite = uusiOsoite;
+            }
+
+            get puhelinnumero() {
+                return this._puhelinnumero;
+            }
+
+            set puhelinnumero(uusiPuhelinnumero) {
+                this._puhelinnumero = uusiPuhelinnumero;
+            }
+
+            tulosta() {
+                console.log(`Nimi: ${this._nimi}, Syntymävuosi: ${this._syntymavuosi}, Osoite: ${this._osoite}, Puhelinnumero: ${this._puhelinnumero}`);
+            }
+
+            laskeIka() {
+                const nykyinenVuosi = new Date().getFullYear();
+                const syntymavuosi = this._syntymavuosi.getFullYear();
+                return nykyinenVuosi - syntymavuosi;
+            }
+        }
+
+        // Luodaan uusi oppilas-instanssi
+        const oppilas1 = new Oppilas("Matti Meikäläinen", "2005-09-15", "Esimerkkikatu 123", "0123456789");
+
+        // Tulostetaan oppilaan tiedot
+        oppilas1.tulosta();
+
+        // Lasketaan oppilaan ikä ja tulostetaan se
+        const ika = oppilas1.laskeIka();
+        console.log(`Ikä: ${ika}`);
+
+
+    </script>
+
+</body>
+
+</html>

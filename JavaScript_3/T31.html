@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppilas 31</title>
+</head>
+<body>
+    <script>
+        class Arvosana {
+            constructor(oppiaine, arvosana, suorituspvm) {
+                this.oppiaine = oppiaine;
+                this.arvosana = arvosana;
+                this.suorituspvm = suorituspvm;
+            }
+        }
+        
+        class Oppilas {
+            constructor(nimi, syntymavuosi, osoite, puhelinnumero) {
+                this._nimi = nimi;
+                this._syntymavuosi = new Date(syntymavuosi);
+                this._osoite = osoite;
+                this._puhelinnumero = puhelinnumero;
+                this._arvosanat = [];
+            }
+        
+            LisaaArvosana(oppiaine, arvosana, suorituspvm) {
+                if (arvosana >= 0 && arvosana <= 10) {
+                    const uusiArvosana = new Arvosana(oppiaine, arvosana, new Date(suorituspvm));
+                    this._arvosanat.push(uusiArvosana);
+                } else {
+                    console.log("Arvosana tulee olla välillä 0-10");
+                }
+            }
+        
+            printArvosanat() {
+                this._arvosanat.forEach(arvosana => {
+                    console.log(`Oppiaine: ${arvosana.oppiaine}, Arvosana: ${arvosana.arvosana}, Suorituspvm: ${arvosana.suorituspvm}`);
+                });
+            }
+        
+            tulosta() {
+                console.log(`Nimi: ${this._nimi}, Syntymävuosi: ${this._syntymavuosi}, Osoite: ${this._osoite}, Puhelinnumero: ${this._puhelinnumero}`);
+            }
+        
+            laskeIka() {
+                const nykyinenVuosi = new Date().getFullYear();
+                const syntymavuosi = this._syntymavuosi.getFullYear();
+                return nykyinenVuosi - syntymavuosi;
+            }
+        }
+        
+        const oppilas = new Oppilas("Matti Meikäläinen", "2005-09-15", "Esimerkkikatu 123", "0123456789");
+        oppilas.LisaaArvosana("Matematiikka", 9, "2023-10-25");
+        oppilas.LisaaArvosana("Fysiikka", 8, "2023-10-30");
+        
+        oppilas.tulosta();
+        oppilas.printArvosanat();
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joulukalenteri</title>
+    <style>
+        .luukku {
+            width: 100px;
+            height: 100px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 100px;
+        }
+
+        .luukku.avattu {
+            background-color: #fff;
+        }
+
+        .sisalto {
+            display: none;
+            text-align: center;
+        }
+
+        .sisalto img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .sisalto video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var tanaan = new Date().getDate();
+            
+            $(".luukku").click(function() {
+                var luukkuNumero = $(this).data("luukku");
+                var avattu = $(this).hasClass("avattu");
+                
+                if (luukkuNumero <= tanaan && !avattu) {
+                    $(this).addClass("avattu");
+                    $("#sisalto" + luukkuNumero).slideDown(2000);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="kalenteri">
+        <div class="luukku" data-luukku="1">1</div>
+        <div class="luukku" data-luukku="2">2</div>
+        <div class="luukku" data-luukku="3">3</div>
+        <div class="luukku" data-luukku="4">4</div>
+        <div class="luukku" data-luukku="5">5</div>
+        <div class="luukku" data-luukku="6">6</div>
+        <div class="luukku" data-luukku="7">7</div>
+        <div class="luukku" data-luukku="8">8</div>
+        <div class="luukku" data-luukku="9">9</div>
+    </div>
+    
+    <div class="sisalto" id="sisalto1">
+        <p>Tekstiä ensimmäiselle luukulle.</p>
+    </div>
+    <div class="sisalto" id="sisalto2">
+        <p>Tekstiä toiselle luukulle.</p>
+    </div>
+    <div class="sisalto" id="sisalto3">
+        <p>Tekstiä kolmannelle luukulle.</p>
+    </div>
+    <div class="sisalto" id="sisalto4">
+        <p>Tekstiä neljännelle luukulle.</p>
+    </div>
+    <div class="sisalto" id="sisalto5">
+        <p>Tekstiä viidennelle luukulle.</p>
+    </div>
+    <div class="sisalto" id="sisalto6">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/L23l70UDYRY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="sisalto" id="sisalto7">
+        <img src="joulukuva1.jpeg" alt="Kuva 1">
+    </div>
+    <div class="sisalto" id="sisalto8">
+        <img src="joulukuva2.jpeg" alt="Kuva 2">
+    </div>
+    <div class="sisalto" id="sisalto9">
+        <img src="joulukuva3.jpeg" alt="Kuva 3">
+    </div>
+</body>
+</html>
