@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HTML + "internal & inline css"-->
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML tehtävä 1</title>
+    <style>
+        table,
+        th,
+        td {
+            border-style: ridge; 
+            border-width: 3px;
+            border-color: rgb(207, 207, 207);
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Taulukko</h1>
+    <table>
+        <tr>
+            <th style="width: 200px;" rowspan="2" colspan="2">Henkilöstö</th>
+            <th colspan="3">Koulutus</th>
+        </tr>
+        <tr>
+            <th style="width: 100px;">Muu</th>
+            <th style="width: 100px;">Ammatti-korkeakoulu</th>
+            <th style="width: 100px;">Korkeakoulu</th>
+        </tr>
+        <tr>
+            <th rowspan="3" width="70px">Ikä</th>
+            <th>- 30</th>
+            <td style="text-align: center;">
+                <a href="https://www.youtube.com">Linkki</a>
+            </td>
+            <td style="text-align: center;">
+                <a href="https://www.savonia.fi">Linkki 2</a>
+            </td>
+            <td style="text-align: center;">
+                <a href="https://www.savonia.fi">Linkki 3</a><!--hyperlink-->
+            </td>
+        </tr>
+        <tr><!--table row-->
+            <th>30 - 50</th><!--table header-->
+            <td><!--table data-->
+                <ol><!--ordered list-->
+                    <li>Yksi</li>
+                    <li>Kaksi</li><!--list item-->
+                    <li>Kolme</li>
+                </ol><!--html comment-->
+                </td>
+                <td>
+                    <ul><!--Unordered list-->
+                        <li>Neljä</li>
+                        <li>Viisi</li>
+                        <li>Kuusi</li>
+                    </ul>
+                </td>
+                <td>
+                    <dl><!--description list-->
+                        <li>Seitsemän</li>
+                        <li>Kahdeksan</li>
+                        <li>Yhdeksän</li>
+                    </dl>
+                </td>
+        </tr>
+        <tr>
+            <th>50 -</th>
+            <td style="font-style: italic; text-align: center;">Kursivoitu</td>
+            <td style="font-weight: bold; text-align: center;">Lihavoitu</td>
+            <td style="text-transform: uppercase; text-align: center;">Isolla fontilla</td>
+        </tr>
+    </table>
+</body>
+
+</html>

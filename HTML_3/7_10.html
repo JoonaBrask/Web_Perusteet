@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävät 7-10</title>
+    <link rel="stylesheet" href="7_10tyyli.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 25%; 
+        }
+
+        td,
+        th {
+            border: 1px solid grey;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: aliceblue;
+        }
+
+        button {
+            background-image: url(button.gif);
+            background-size: 60px;
+            background-position: 50px, 0px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jostain syystä tiedot eivät palaudu ollenkaan kyseiselle sivulle, vaikka tehtävät ovat oikein</h1>
+    <form action="https://garagecoders.azurewebsites.net/process" method="post" target="_blank">
+        <table>
+            <tr>
+                <th>
+                    <label for="oppilaitos">Oppilaitos</label>
+                </th>
+                <td>
+                    <input type="text" id="oppilaitos" name="Savonia amk" value="Savonia AMK" disabled><br>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="name">Nimi</label>
+                </th>
+                <td>
+                    <input type="text" id="name" name="name"><br>
+                </td>
+                <tr>
+                    <th><label for="yearOfStudy">vuosikurssi</label></th>
+                    <td><input type="password" id="yearOfStudy" name="yearOfStudy"><br></td>
+                </tr>
+            <tr>
+                <th>
+                    <label for="courseName">Kurssin nimi</label>
+                <td>
+                    <select name="courseName" , name="courseName">
+                        <optgroup label="Eka osio">
+                        <option value="Kurssi-I">Kurssi-I</option>
+                        <option value="Kurssi-II">Kurssi-II</option>
+                    </optgroup>
+                    <optgroup label="Toka osio">
+                        <option value="Rivi-I">Rivi-I</option>
+                        <option value="Rivi-II">Rivi-II</option>
+                    </optgroup>
+                </td>
+                </select><br></th>
+
+            <tr>
+                <th>
+                    <label for="courseType">Kurssin tyyppi</label><br>
+                <td>
+                    <select id="courseType" name="courseType">
+                        <option>Tyyppi-I</option>
+                        <option>Tyyppi-II</option>
+                        <option>Tyyppi-III</option>
+                        <option>Tyyppi-IIII</option>
+                </td>
+                </select>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <legend>Sukupuoli</legend>
+                <td>
+                    <input type="radio" id="Mies" name="gender" value="Mies">
+                    <label for="mies">Mies</label><br>
+                    <input type="radio" id="Nainen" name="gender" value="Nainen">
+                    <label for="nainen">Nainen</label>
+                </td>
+                </th>
+            </tr>
+
+            <tr>
+                <th> <label>Harrastukset</label><br>
+                <td><input type="checkbox" name="hobby[]" value="Motocross"> Motocross <br>
+                    <input type="checkbox" name="hobby[]" value="Jääkiekko"> Jääkiekko <br>
+                    <input type="checkbox" name="hobby[]" value="Golf" checked> Golf <br>
+                    <input type="checkbox" name="hobby[]" value="Calisthenics"> Calisthenics
+                </td>
+                </th>
+            </tr>
+            <td rowspan="3">
+                <input type="image" src="button.gif" alt="submit">
+            </td>
+                <td><input type="reset" value="Reset" onclick="return confirm('Oletko varma, että haluat tyhjentää syöttämäsi tiedot?')"></td>
+        </table>
+    </form>
+    <p>Disabled ja readonly ero, disabled ei anna lukea mitään siinä kentässä olevaa, mihin se on laitettu</p>
+</body>
+
+</html>
